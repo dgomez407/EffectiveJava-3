@@ -49,29 +49,52 @@ class Services {
 }
 
 class MyService implements Service {
+	private MyService() {
+	}
 
 	@Override
 	public void fun() {
-		System.out.println("MyService fun() is called");
+		System.out.println(this + " fun()");
 	}
-	
+
+	public static Provider provider = new Provider() {
+
+		@Override
+		public Service newService() {
+			return new MyService();
+		}
+	};
+
 }
 
-class MyProvider implements Provider {
+class MyService2 implements Service {
+	private MyService2() {
+	}
 
 	@Override
-	public Service newService() {
-		return new MyService();
+	public void fun() {
+		System.out.println(this + " fun()");
 	}
-	
+
+	public static Provider provider = new Provider() {
+
+		@Override
+		public Service newService() {
+			return new MyService2();
+		}
+	};
+
 }
 
 public class Item1 {
 
 	public static void main(String[] args) {
-		Services.registerDefaultProvider(new MyProvider());
+		Services.registerDefaultProvider(MyService.provider);
+		Services.registerProvider("MyService2", MyService2.provider);
 		Service service = Services.newInstance();
+		Service service2 = Services.newInstance("MyService2");
 		service.fun();
+		service2.fun();
 	}
 
 }

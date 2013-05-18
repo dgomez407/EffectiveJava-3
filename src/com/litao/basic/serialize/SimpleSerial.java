@@ -1,4 +1,4 @@
-package com.litao.other;
+package com.litao.basic.serialize;
 
 import java.io.File;
 import java.io.FileInputStream;
