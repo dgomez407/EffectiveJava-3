@@ -1,4 +1,4 @@
-package com.litao.basic.common_interface;
+package com.litao.basic.interfaces;
 
 import java.util.Arrays;
 import java.util.Comparator;

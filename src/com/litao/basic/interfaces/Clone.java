@@ -1,4 +1,4 @@
-package com.litao.basic.common_interface;
+package com.litao.basic.interfaces;
 
 // 必须实现Clonable接口, 以指示Object.clone()方法可以合法地对该类实例进行按字段复制
 // 重写clone()方法

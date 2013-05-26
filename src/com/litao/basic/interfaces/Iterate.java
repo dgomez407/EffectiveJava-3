@@ -1,4 +1,4 @@
-package com.litao.basic.common_interface;
+package com.litao.basic.interfaces;
 
 import java.util.ArrayList;
 import java.util.Iterator;

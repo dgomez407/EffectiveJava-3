@@ -65,9 +65,6 @@ class Person implements Comparable<Person> {
 
 	@Override
 	public int compareTo(Person o) {
-		if (o == null)
-			throw new NullPointerException();
-
 		if (name == null) {
 			if (o.name != null)
 				return -1;
@@ -101,7 +98,6 @@ public class Sets {
 		set.add(p3);
 		set.add(p4);
 		set.add(p5);
-		set.add(null);
 		System.out.println(set);
 
 		set = new TreeSet<Person>();
@@ -110,7 +106,6 @@ public class Sets {
 		set.add(p3);
 		set.add(p4);
 		set.add(p5);
-		//set.add(null); // 无法成功，因为TreeSet调用TreeMap，把TreeSet中的元素当做TreeMap的key来处理，而TreeMap的key不能为空
 		System.out.println(set);
 	}
 }
