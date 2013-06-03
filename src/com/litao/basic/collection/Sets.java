@@ -74,7 +74,7 @@ class Person implements Comparable<Person> {
 				return nameDiff;
 		}
 
-		//  此处不要使用age-o.age, 会有int溢出的潜在风险
+		// 此处不要使用age-o.age, 会有int溢出的潜在风险
 		return age > o.age ? 1 : (age == o.age ? 0 : -1);
 	}
 }
@@ -87,11 +87,11 @@ public class Sets {
 		Person p3 = new Person("james", 23);
 		Person p4 = new Person("james", 23);
 		Person p5 = new Person("james", 20);
-		
+
 		// 使用Set接口必须重写equals()
 		// 使用HashSet接口必须重写hashcode()
 		// 使用TreeSet接口必须实现Comparable接口，并实现compareTo()方法
-		
+
 		Set<Person> set = new HashSet<Person>();
 		set.add(p1);
 		set.add(p2);

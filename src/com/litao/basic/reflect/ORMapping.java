@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 class Person {
-	@DataField(name="name")
+	@DataField(name = "name")
 	private String name;
-	@DataField(name="age")
+	@DataField(name = "age")
 	private int age;
 
 	public Person() {
@@ -46,34 +46,34 @@ public class ORMapping {
 		Class<Person> clazz = Person.class;
 		// call default no-param constructor
 		Person p = clazz.getConstructor(new Class[] {}).newInstance(new Object[] {});
-		
+
 		// get the declared fields
 		Field[] fields = clazz.getDeclaredFields();
 		for (Field field : fields) {
 			// get the field name
 			String fieldName = field.getName();
-			
+
 			// get method name
 			String getMethodName = String.format("get%s%s", fieldName.substring(0, 1).toUpperCase(), fieldName.substring(1));
 			// set method name
 			String setMethodName = String.format("set%s%s", fieldName.substring(0, 1).toUpperCase(), fieldName.substring(1));
-			
+
 			// get method
-			Method getMethod= clazz.getMethod(getMethodName, new Class[]{});
+			Method getMethod = clazz.getMethod(getMethodName, new Class[] {});
 			// set method
-			Method setMethod= clazz.getMethod(setMethodName, new Class[]{field.getType()});
-			
+			Method setMethod = clazz.getMethod(setMethodName, new Class[] { field.getType() });
+
 			// get the map field name from annotation
 			String mapFieldName = field.getAnnotation(DataField.class).name();
 			Object value = data.get(mapFieldName);
-			
+
 			// invoke object's set method
-			setMethod.invoke(p, new Object[]{value});
+			setMethod.invoke(p, new Object[] { value });
 		}
-		
+
 		return p;
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 		List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
 		String nameField = "name";
@@ -90,8 +90,8 @@ public class ORMapping {
 		map.put(nameField, "James");
 		map.put(ageField, 20);
 		dataList.add(map);
-		
-		for(Map<String, Object> data : dataList) {
+
+		for (Map<String, Object> data : dataList) {
 			Person p = constructPerson(data);
 			System.out.println(p);
 		}

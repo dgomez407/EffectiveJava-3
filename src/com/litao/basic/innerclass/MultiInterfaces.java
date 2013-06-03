@@ -46,7 +46,7 @@ public class MultiInterfaces {
 	private static void takeA(A a) {
 		a.a();
 	}
-	
+
 	private static void takeB(B b) {
 		b.b();
 	}
@@ -55,7 +55,7 @@ public class MultiInterfaces {
 		X x = new X();
 		takeA(x);
 		takeB(x);
-		
+
 		Y y = new Y();
 		takeA(y);
 		takeB(y.makeB());

@@ -56,7 +56,7 @@ public class Locks {
 			}
 
 		}.start();
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

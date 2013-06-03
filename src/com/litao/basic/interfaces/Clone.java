@@ -84,7 +84,7 @@ public class Clone {
 		shallowClone2.setStr("world");
 		System.out.println(shallowClone);
 		System.out.println(shallowClone2);
-		
+
 		DeepClone deepClone = new DeepClone(shallowClone, "hello");
 		DeepClone deepClone2 = (DeepClone) deepClone.clone();
 		deepClone2.setShallowClone(shallowClone2);

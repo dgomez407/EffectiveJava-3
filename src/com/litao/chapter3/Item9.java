@@ -50,11 +50,11 @@ class PhoneNumber implements Comparable<PhoneNumber> {
 			throw new NullPointerException();
 
 		int areaCodeDiff = areaCode - pn.areaCode;
-		if(areaCodeDiff != 0)
+		if (areaCodeDiff != 0)
 			return areaCodeDiff;
-		
+
 		int prefixDiff = prefix - pn.prefix;
-		if(prefixDiff != 0)
+		if (prefixDiff != 0)
 			return prefixDiff;
 
 		return lineNumber - pn.lineNumber;
@@ -67,7 +67,7 @@ public class Item9 {
 		Map<PhoneNumber, String> map = new HashMap<PhoneNumber, String>();
 		map.put(new PhoneNumber(707, 867, 5309), "Jenny");
 		System.out.println(map.get(new PhoneNumber(707, 867, 5309)));
-		
+
 		PhoneNumber pn1 = new PhoneNumber(707, 867, 5309);
 		PhoneNumber pn2 = new PhoneNumber(704, 864, 5304);
 		System.out.println(pn1.compareTo(pn2));

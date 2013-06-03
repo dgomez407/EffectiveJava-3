@@ -13,7 +13,7 @@ public class BitSets {
 		BitSet anBit = new BitSet();
 		anBit.set(10);
 		anBit.set(5);
-		//bit.and(anBit);
+		// bit.and(anBit);
 		bit.or(anBit);
 
 		for (int i = 0; i < bit.length(); i++) {

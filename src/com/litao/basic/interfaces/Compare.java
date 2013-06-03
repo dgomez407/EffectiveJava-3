@@ -77,7 +77,7 @@ public class Compare {
 	public static void main(String[] args) {
 		Person[] persons = { new Person("Tom", 20), new Person("Peter", 18), new Person("Wade", 22) };
 		System.out.println(Arrays.asList(persons));
-		Arrays.sort(persons, new PersonComparator());	// 可以使用多种Comparator，进而采取不同的比较策略
+		Arrays.sort(persons, new PersonComparator()); // 可以使用多种Comparator，进而采取不同的比较策略
 		System.out.println(Arrays.asList(persons));
 
 		Student[] students = { new Student("Tom", 20, 96), new Student("Peter", 18, 98), new Student("Wade", 22, 94) };

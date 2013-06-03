@@ -13,7 +13,7 @@ class DaemonThreadFactory implements ThreadFactory {
 		thread.setDaemon(true);
 		return thread;
 	}
-	
+
 }
 
 class SimpleDaemon implements Runnable {
