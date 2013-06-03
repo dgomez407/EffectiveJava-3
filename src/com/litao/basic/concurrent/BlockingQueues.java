@@ -80,10 +80,10 @@ class Butter implements Runnable {
 	public void run() {
 		try {
 			while (!Thread.interrupted()) {
-				Toast t = dryQueue.take();
+				Toast t = dryQueue.take(); // block method
 				t.butter();
 				System.out.println(t);
-				butteredQueue.put(t);
+				butteredQueue.put(t); // block method
 			}
 		} catch (InterruptedException e) {
 			System.out.println("Butter interrupted");
@@ -152,14 +152,14 @@ public class BlockingQueues {
 		BlockingQueue<Toast> dryQueue = new LinkedBlockingQueue<Toast>();
 		BlockingQueue<Toast> butteredQueue = new LinkedBlockingQueue<Toast>();
 		BlockingQueue<Toast> finishedQueue = new LinkedBlockingQueue<Toast>();
-		
+
 		ExecutorService executorService = Executors.newCachedThreadPool();
 		executorService.execute(new Toaster(dryQueue));
 		executorService.execute(new Butter(dryQueue, butteredQueue));
 		executorService.execute(new Jammer(butteredQueue, finishedQueue));
-		
-		//TimeUnit.SECONDS.sleep(5);
-		//executorService.shutdownNow();
+
+		TimeUnit.SECONDS.sleep(5);
+		executorService.shutdownNow();
 	}
 
 }
